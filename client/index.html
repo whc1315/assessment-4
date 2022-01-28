@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <header>The Fun Website</header>
+    <button id="complimentButton">Get a compliment</button>
+    <button id="fortuneButton">Get a fortune</button>
+    <button id="jokeButton">Get a joke</button>
+    <button id="helloButton">Hello in other Languages</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios
+          .get("http://localhost:4000/api/compliment/")
+          .then(function (response) {
+            const data = response.data;
+            alert(data);
+          });
+      };
+      document.getElementById("fortuneButton").onclick = function () {
+        axios
+          .get("http://localhost:4000/api/fortune/")
+          .then(function (response) {
+            const data = response.data;
+            alert(data);
+          });
+      };
+      document.getElementById("jokeButton").onclick = function () {
+        axios.get("http://localhost:4000/api/joke/").then(function (response) {
+          const data = response.data;
+          alert(data);
+        });
+      };
+      document.getElementById("jokeButton").onclick = function () {
+        axios.get("http://localhost:4000/api/joke/").then(function (response) {
+          const data = response.data;
+          alert(data);
+        });
+      };
+      document.getElementById("helloButton").onclick = function () {
+        axios.get("http://localhost:4000/api/hello/").then(function (response) {
+          const data = response.data;
+          alert(data);
+        });
+      };
+    </script>
+  </body>
+</html>
