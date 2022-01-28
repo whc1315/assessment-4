@@ -70,4 +70,8 @@ app.get("/api/hello", (req, res) => {
   res.status(200).send(randomHello);
 });
 
+app.post('/api/visit' (req, res) => {
+  console.log(res.body)
+}
+
 app.listen(4000, () => console.log("Server running on 4000"));
