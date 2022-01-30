@@ -1,0 +1,22 @@
+.site-title {
+  text-align: center;
+  font-size: 48px;
+  color: #04aa6d;
+}
+
+.btns {
+  background-color: #04aa6d;
+  border: none;
+  color: rgb(249, 249, 250);
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+}
+
+.textBox {
+  font-size: 24px;
+}

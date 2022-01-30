@@ -2,17 +2,24 @@
 <html>
   <head>
     <title>Back End Assessment</title>
+
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="container">
-    <header>The Fun Website</header>
-    <button id="complimentButton">Get a compliment</button>
-    <button id="fortuneButton">Get a fortune</button>
-    <button id="jokeButton">Get a joke</button>
-    <button id="helloButton">Hello in other Languages</button>
+    <header class="site-title">The Fun Website</header>
 
-    <form action="submit" id="visitForm">
-      <input type="text" id="Name" placeholder="What is your name?" />
-      <button id="submitButton">Submit</button>
+    <button class="btns" id="complimentButton">Get a compliment</button>
+    <button class="btns" id="fortuneButton">Get a fortune</button>
+    <button class="btns" id="jokeButton">Get a joke</button>
+    <button class="btns" id="helloButton">Hello in other Languages</button>
+    <button class="btns" id="dogButton">Dog Breed Generator</button>
+
+    <form method="get|post">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" /><br /><br />
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname" /><br /><br />
+      <button class="btns" id="nameButton">Add Name</button>
     </form>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -39,12 +46,7 @@
           alert(data);
         });
       };
-      document.getElementById("jokeButton").onclick = function () {
-        axios.get("http://localhost:4000/api/joke/").then(function (response) {
-          const data = response.data;
-          alert(data);
-        });
-      };
+
       document.getElementById("helloButton").onclick = function () {
         axios.get("http://localhost:4000/api/hello/").then(function (response) {
           const data = response.data;
@@ -52,13 +54,20 @@
         });
       };
 
-      document.getElementById("visitForm").onclick = function () {
-        axios
-          .post("http://localhost:4000/api/visit/")
-          .then(function (response) {
-            const data = response.data;
-          });
+      document.getElementById("dogButton").onclick = function () {
+        axios.get("http://localhost:4000/api/dog/").then(function (response) {
+          const data = response.data;
+          alert(data);
+        });
       };
+
+      //experimental
+      let names = [];
+      const createName = (body) =>
+        axios
+          .post(baseURL, body)
+          .then(({ data: names }) => displayNames(names))
+          .catch((err) => console.log(err));
     </script>
   </body>
 </html>

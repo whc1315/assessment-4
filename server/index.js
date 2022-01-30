@@ -70,8 +70,39 @@ app.get("/api/hello", (req, res) => {
   res.status(200).send(randomHello);
 });
 
-app.post('/api/visit' (req, res) => {
-  console.log(res.body)
-}
+app.get("/api/dog", (req, res) => {
+  const dogs = [
+    "Golden Retriever",
+    "Boston Terrier",
+    "English Mastiff",
+    "South African Mastiff",
+    "Pug",
+    "Boxer",
+    "Border Collie",
+    "Greyhound",
+    "Chow",
+    "Pit Bull",
+    "Cane Corso",
+    "Presa Canario",
+    "Dalmatian",
+    "English Bulldog",
+  ];
+
+  // choose random joke
+  let randomIndex = Math.floor(Math.random() * dogs.length);
+  let randomDogs = dogs[randomIndex];
+
+  res.status(200).send(randomDogs);
+});
+
+app.post("/api/name", (req, res) => {
+  let names = [];
+
+  names.push(data);
+
+  console.log(names);
+
+  res.status(200).send(names);
+});
 
 app.listen(4000, () => console.log("Server running on 4000"));
